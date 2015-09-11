@@ -3,7 +3,7 @@ author:
   name: m-nagai
   url: http://quartet-communications.com
 style: style.css
-output: slide.html
+output: 20150911-docker.html
 controls: true
 
 --
@@ -23,7 +23,7 @@ controls: true
 * Docker
 * Packer
 * Ansible
-* 活用事例
+* 我が家の活用例
 
 --
 
@@ -37,7 +37,7 @@ controls: true
 
 --
 
-# 以上。
+# 以上
 ## 細かい説明は他の人にお任せます
 
 --
@@ -58,7 +58,7 @@ controls: true
 
 ### Packer:Builder
 
-- イメージ自体を作成してくれる奴
+- イメージ自体を作成する
 - 対応している主なイメージ
     - Amazon EC2 (AMI)
     - DigialOcean
@@ -68,13 +68,13 @@ controls: true
     - VirtualBox
     - VMWare
 
-## ※他にもいくつかあります
+※他にもいくつかあります
 
 --
 
 ### Packer:Provisoner
 
-- イメージの中身を構築してくれる奴
+- イメージの中身をセットアップする
 - いろんなツールが使える
     - Shell
     - Ansible
@@ -82,21 +82,21 @@ controls: true
     - Puppet
     - Salt
 
-## ※他にもいくつかあります
+※他にもいくつかあります
 
 --
 
-### Provisoning Tools
+### Provisoning Tool
 
 - 過去の遺産を流用できるか
 - 冪等性が必要かどうか
   - Immutable Infrastructure
 - サーバ構築の際のポリシー
-  - Python or Ruby or Shell?
+  - Python or Ruby or PHP or Shell?
 
 --
 
-### Ansible By Packer
+### Ansible Provisioner
 
 - ansible-local
   - イメージ内にAnsibleをインストール
@@ -107,7 +107,11 @@ controls: true
 
 --
 
-### Installing Docker By Ansible
+# Ansible
+
+--
+
+### Installing Docker
 
 - 色々パッケージをインストール
     - Docker
@@ -115,20 +119,40 @@ controls: true
     - Packer
     - Supervisor
 - Packerを使ってDockerイメージを作成＆インポート
+    - ここでAnsible(ansible-local)を使っている
 - Supervisor越しにDocker-Composeを使ってDockerを立ち上げ
 
-## これでサーバを再起動しても自動でDockerが立ち上がります
+これでサーバ起動時に自動でDockerが立ち上がります
 
 --
 
-### 活用事例
+### Relationship
 
-- さくらVPS上に構築
+- Supervisor
+    - Docker-Compose
+      - Docker(1)
+      - Docker(2)
+      - Docker(3)
+
+Supervisorを利用する事例が多い
+
+--
+
+# 我が家の活用例
+
+--
+
+### VPS上で利用
+
+- さくらのVPS上に構築
+- 勉強目的
 - Dockerイメージはどこにもホスティングしていない（経済的な理由）
+  - Docker Hub
+  - Tutum
 - Dockerで動かしているのは以下のサーバ
-  - Nginx
+  - Nginx 
   - OpenVPN
-  - Gate
+  - Gate (Google認証なhttpdでリバースプロキシ)
 - ストレージ用のコンテナは用意していない
 - ログ等も外出ししていない
 
@@ -136,7 +160,21 @@ controls: true
 
 ### 構成図
 
-![network](network.png)
+![network](https://cloud.githubusercontent.com/assets/13129570/9778609/b033891a-57ad-11e5-8253-ac5b66858f04.png)
+
+--
+
+### 目的
+
+- 勉強目的
+- インストールの簡易化
+  - 自動化
+  - 時間短縮
+  - Dockerイメージの転用
+- ホストOSがクリーン
+
+Dockerイメージをホスティングしてないので  
+勉強目的がメインになっている
 
 --
 
