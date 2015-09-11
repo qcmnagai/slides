@@ -395,6 +395,10 @@ pre .chunk {
 h1 {
   font-size: 200%;
 }
+ul {
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
 /*.slide-content {
   width: 900px
   height: 700px
@@ -423,7 +427,7 @@ h1 {
 <li>Docker</li>
 <li>Packer</li>
 <li>Ansible</li>
-<li>活用事例</li>
+<li>我が家の活用例</li>
 </ul>
 </section>
   </div>
@@ -437,7 +441,7 @@ h1 {
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h1 id="-">以上。</h1>
+    <section class="slide-content"><h1 id="-">以上</h1>
 <h2 id="-">細かい説明は他の人にお任せます</h2>
 </section>
   </div>
@@ -461,7 +465,7 @@ h1 {
   <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h3 id="packer-builder">Packer:Builder</h3>
 <ul>
-<li>イメージ自体を作成してくれる奴</li>
+<li>イメージ自体を作成する</li>
 <li>対応している主なイメージ<ul>
 <li>Amazon EC2 (AMI)</li>
 <li>DigialOcean</li>
@@ -473,13 +477,13 @@ h1 {
 </ul>
 </li>
 </ul>
-<h2 id="-">※他にもいくつかあります</h2>
+<p>※他にもいくつかあります</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h3 id="packer-provisoner">Packer:Provisoner</h3>
 <ul>
-<li>イメージの中身を構築してくれる奴</li>
+<li>イメージの中身をセットアップする</li>
 <li>いろんなツールが使える<ul>
 <li>Shell</li>
 <li>Ansible</li>
@@ -489,11 +493,11 @@ h1 {
 </ul>
 </li>
 </ul>
-<h2 id="-">※他にもいくつかあります</h2>
+<p>※他にもいくつかあります</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h3 id="provisoning-tools">Provisoning Tools</h3>
+    <section class="slide-content"><h3 id="provisoning-tool">Provisoning Tool</h3>
 <ul>
 <li>過去の遺産を流用できるか</li>
 <li>冪等性が必要かどうか<ul>
@@ -501,14 +505,14 @@ h1 {
 </ul>
 </li>
 <li>サーバ構築の際のポリシー<ul>
-<li>Python or Ruby or Shell?</li>
+<li>Python or Ruby or PHP or Shell?</li>
 </ul>
 </li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-12">
-    <section class="slide-content"><h3 id="ansible-by-packer">Ansible By Packer</h3>
+    <section class="slide-content"><h3 id="ansible-provisioner">Ansible Provisioner</h3>
 <ul>
 <li>ansible-local<ul>
 <li>イメージ内にAnsibleをインストール</li>
@@ -522,7 +526,11 @@ h1 {
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
-    <section class="slide-content"><h3 id="installing-docker-by-ansible">Installing Docker By Ansible</h3>
+    <section class="slide-content"><h1 id="ansible">Ansible</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-14">
+    <section class="slide-content"><h3 id="installing-docker">Installing Docker</h3>
 <ul>
 <li>色々パッケージをインストール<ul>
 <li>Docker</li>
@@ -531,21 +539,49 @@ h1 {
 <li>Supervisor</li>
 </ul>
 </li>
-<li>Packerを使ってDockerイメージを作成＆インポート</li>
+<li>Packerを使ってDockerイメージを作成＆インポート<ul>
+<li>ここでAnsible(ansible-local)を使っている</li>
+</ul>
+</li>
 <li>Supervisor越しにDocker-Composeを使ってDockerを立ち上げ</li>
 </ul>
-<h2 id="-docker-">これでサーバを再起動しても自動でDockerが立ち上がります</h2>
+<p>これでサーバ起動時に自動でDockerが立ち上がります</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
-    <section class="slide-content"><h3 id="-">活用事例</h3>
+  <div class="slide hidden" id="slide-15">
+    <section class="slide-content"><h3 id="relationship">Relationship</h3>
 <ul>
-<li>さくらVPS上に構築</li>
-<li>Dockerイメージはどこにもホスティングしていない（経済的な理由）</li>
+<li>Supervisor<ul>
+<li>Docker-Compose<ul>
+<li>Docker(1)</li>
+<li>Docker(2)</li>
+<li>Docker(3)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Supervisorを利用する事例が多い</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-16">
+    <section class="slide-content"><h1 id="-">我が家の活用例</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-17">
+    <section class="slide-content"><h3 id="vps-">VPS上で利用</h3>
+<ul>
+<li>さくらのVPS上に構築</li>
+<li>勉強目的</li>
+<li>Dockerイメージはどこにもホスティングしていない（経済的な理由）<ul>
+<li>Docker Hub</li>
+<li>Tutum</li>
+</ul>
+</li>
 <li>Dockerで動かしているのは以下のサーバ<ul>
-<li>Nginx</li>
+<li>Nginx </li>
 <li>OpenVPN</li>
-<li>Gate</li>
+<li>Gate (Google認証なhttpdでリバースプロキシ)</li>
 </ul>
 </li>
 <li>ストレージ用のコンテナは用意していない</li>
@@ -553,18 +589,33 @@ h1 {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h3 id="-">構成図</h3>
 <p><img src="https://cloud.githubusercontent.com/assets/13129570/9778609/b033891a-57ad-11e5-8253-ac5b66858f04.png" alt="network"></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-19">
+    <section class="slide-content"><h3 id="-">目的</h3>
+<ul>
+<li>勉強目的</li>
+<li>インストールの簡易化<ul>
+<li>自動化</li>
+<li>時間短縮</li>
+<li>Dockerイメージの転用</li>
+</ul>
+</li>
+<li>ホストOSがクリーン</li>
+</ul>
+<p>Dockerイメージをホスティングしてないので<br>勉強目的がメインになっている</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-20">
     <section class="slide-content"><h1 id="-">終わり</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-21">
     <section class="slide-content"><div class="author">
-  <h1 class="name">qcmnagai</h1>
+  <h1 class="name">m-nagai</h1>
     <h3 class="url">
       <a href="http://quartet-communications.com">http://quartet-communications.com</a>
     </h3>
