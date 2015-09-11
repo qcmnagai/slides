@@ -8,7 +8,7 @@ controls: true
 
 --
 
-# たつきち~~(さん)~~に<br />Dockerを教える会
+# たつきち(さん)に<br />Dockerを教える会
 <br />
 ## 20150911 @kuartet-communications
 
