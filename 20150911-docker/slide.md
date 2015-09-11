@@ -144,17 +144,15 @@ Supervisorを利用する事例が多い
 
 ### VPS上で利用
 
-- さくらのVPS上に構築
-- 勉強目的
+- さくらのVPS
 - Dockerイメージはどこにもホスティングしていない（経済的な理由）
   - Docker Hub
   - Tutum
 - Dockerで動かしているのは以下のサーバ
-  - Nginx 
+  - Nginx
   - OpenVPN
   - Gate (Google認証なhttpdでリバースプロキシ)
 - ストレージ用のコンテナは用意していない
-- ログ等も外出ししていない
 
 --
 
