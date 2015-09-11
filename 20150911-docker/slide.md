@@ -10,7 +10,7 @@ controls: true
 
 # たつきち(さん)に<br />Dockerを教える会
 <br />
-## 20150911 @kuartet-communications
+## 20150911 @quartet-communications
 
 --
 
@@ -72,7 +72,7 @@ controls: true
 
 --
 
-### Packer:Provisoner
+### Packer:Provisioner
 
 - イメージの中身をセットアップする
 - いろんなツールが使える
@@ -86,7 +86,7 @@ controls: true
 
 --
 
-### Provisoning Tool
+### Provisioning Tool
 
 - 過去の遺産を流用できるか
 - 冪等性が必要かどうか
