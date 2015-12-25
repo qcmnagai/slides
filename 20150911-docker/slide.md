@@ -1,6 +1,6 @@
 title: AnsibleとPackerでDockerの自動セットアップと我が家の活用例
 author:
-  name: m-nagai
+  name: qcmnagai
   url: http://quartet-communications.com
 style: style.css
 output: 20150911-docker.html
