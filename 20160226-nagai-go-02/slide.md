@@ -3,7 +3,7 @@ author:
   name: qcmnagai
   url: http://quartet-communications.com
 style: style.css
-output: 20160226-nagai-go-02.html
+output: index.html
 controls: true
 
 --

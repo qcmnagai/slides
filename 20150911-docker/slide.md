@@ -3,7 +3,7 @@ author:
   name: qcmnagai
   url: http://quartet-communications.com
 style: style.css
-output: 20150911-docker.html
+output: index.html
 controls: true
 
 --
