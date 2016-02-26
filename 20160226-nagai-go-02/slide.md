@@ -105,6 +105,12 @@ hoge := <- ch
 
 --
 
+# サンプル1実演
+
+[https://github.com/qcmnagai/go-samples/blob/master/roll-call/roll-call.go](https://github.com/qcmnagai/go-samples/blob/master/roll-call/roll-call.go)
+
+--
+
 # サンプル2<br />ダチョウ倶楽部のあのネタ
 
 --
@@ -121,6 +127,16 @@ hoge := <- ch
 
 1. syncパッケージによる簡単な制御
 1. 絶妙な間の取り方
+
+--
+
+# サンプル2実演
+
+[https://github.com/qcmnagai/go-samples/blob/master/ostrich/ostrich.go](https://github.com/qcmnagai/go-samples/blob/master/ostrich/ostrich.go)
+
+
+--
+
 
 --
 
