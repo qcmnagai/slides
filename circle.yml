@@ -1,0 +1,32 @@
+machine:
+  timezone: Asia/Tokyo
+  node:
+    version: 5.1.0
+
+dependencies:
+  pre:
+    - npm install -g cleaver
+
+test:
+  override:
+    - exit 0
+
+deployment:
+  publish:
+    branch: master
+    commands:
+      - rm -rf ./node_modules
+      - git config --global user.name "circle-ci"
+      - git config --global user.email "qcmnagai@users.noreply.github.com"
+      - ./build.sh
+      - git checkout -t origin/gh-pages
+      - git rm -r ./*
+      - cp -r /tmp/_slides/* .
+      - touch ./circle.yml
+      - echo "general:" >> ./circle.yml
+      - echo "  branches:" >> ./circle.yml
+      - echo "    ignore:" >> ./circle.yml
+      - echo "      - gh-pages" >> ./circle.yml
+      - git add -A
+      - git commit -m "Slide updated at $(TZ=\"JST-9\" date +'%Y.%m.%d %H:%M:%S')"
+      - git push origin gh-pages
