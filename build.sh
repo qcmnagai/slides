@@ -8,5 +8,5 @@ do
   base_dir=$(basename $dir)
   output_dir="$output_base_dir/$base_dir/"
   mkdir -p $output_dir
-  cleaver $md --output=$output_base_dir/$base_dir/index.html
+  ./node_modules/cleaver/bin/cleaver $md --output=$output_base_dir/$base_dir/index.html
 done;
