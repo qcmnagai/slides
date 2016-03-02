@@ -107,7 +107,7 @@ hoge := <- ch
 
 # サンプル1実演
 
-[https://github.com/qcmnagai/go-samples/blob/master/roll-call/roll-call.go](https://github.com/qcmnagai/go-samples/blob/master/roll-call/roll-call.go)
+<center>-> [source code](https://github.com/qcmnagai/go-samples/blob/master/roll-call/roll-call.go)</center>
 
 --
 
@@ -132,7 +132,7 @@ hoge := <- ch
 
 # サンプル2実演
 
-[https://github.com/qcmnagai/go-samples/blob/master/ostrich/ostrich.go](https://github.com/qcmnagai/go-samples/blob/master/ostrich/ostrich.go)
+<center>-> [source code](https://github.com/qcmnagai/go-samples/blob/master/ostrich/ostrich.go)</center>
 
 
 --
