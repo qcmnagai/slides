@@ -519,7 +519,7 @@ hoge := &lt;- ch</code></pre>
     <section class="slide-content"><h1 id="-">終わり</h1>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-23">
+  <div class="slide hidden" id="slide-23">
     <section class="slide-content"><div class="author">
   <h1 class="name">qcmnagai</h1>
     <h3 class="url">
@@ -571,11 +571,7 @@ function navigate(n) {
  * Updates the current URL to include a hashtag of the current page number.
  */
 function updateURL() {
-  try {
-    window.history.replaceState({} , null, '#' + currentPosition());
-  } catch (e) {
-    window.location.hash = currentPosition();
-  }
+  window.history.replaceState({} , null, '#' + currentPosition());
 }
 
 
