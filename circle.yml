@@ -13,16 +13,18 @@ deployment:
     commands:
       - git config --global user.name "circle-ci"
       - git config --global user.email "qcmnagai@users.noreply.github.com"
-      - ./build.sh
+      - ./build.sh /tmp/_slides/
       - git checkout -t origin/gh-pages
+      - git clean -dxf
       - git rm $(git ls-files)
-      - rm -rf $(git ls-files -o)
       - cp -r /tmp/_slides/* .
-      - touch ./circle.yml
-      - echo "general:" >> ./circle.yml
-      - echo "  branches:" >> ./circle.yml
-      - echo "    ignore:" >> ./circle.yml
-      - echo "      - gh-pages" >> ./circle.yml
+      - |
+        cat <<EOF > ./circle.yml
+        general:
+          branches:
+            ignore:
+              - gh-pages
+        EOF
       - git add -A
       - git commit -m "Slide updated at $(date +'%Y.%m.%d %H:%M:%S')" --allow-empty
       - git push origin gh-pages

@@ -1,7 +1,10 @@
 #/bin/bash
 
 root=$(pwd)
-output_base_dir="/tmp/_slides"
+output_base_dir="$1"
+if [ "$output_base_dir" = "" ]; then
+  output_base_dir="./"
+fi
 for md in $(find . -type f -name slide.md);
 do
   dir=$(dirname $md)
