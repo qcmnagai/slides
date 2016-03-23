@@ -1,0 +1,20 @@
+h1 {
+  font-size: 200%;
+}
+h3 {
+  font-size: 180%;
+}
+ul, ol {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  line-height: 1.75;
+}
+pre {
+  padding: 20px;
+  font-size: 100%;
+  background-color: #ffffd8;
+}
+/*.slide-content {
+  width: 900px
+  height: 700px
+}*/
