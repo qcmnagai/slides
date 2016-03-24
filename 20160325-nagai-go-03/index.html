@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>Nagai Go</title>
+  <title>Nagai Go #03</title>
   <style type="text/css">
     body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -390,7 +390,7 @@ pre {
 </section>
   </div>
   <div class="slide hidden" id="slide-2">
-    <section class="slide-content"><h1 id="-span-style-color-008080-golang-span-span-style-color-0000cc-span-"><span style="color: #008080;">Golang</span>と<span style="color: #0000cc;">データベース</span></h1>
+    <section class="slide-content"><h1 id="-span-style-color-008080-golang-span-span-style-color-003366-span-"><span style="color: #008080;">Golang</span>と<span style="color: #003366;">データベース</span></h1>
 <div style="text-align: center; margin-top: 50px;">
 <img src="https://cloud.githubusercontent.com/assets/13129570/12286122/b02913d6-ba04-11e5-8e2a-941e5fa38832.png" alt="gopher_head">
 </div></section>
@@ -427,25 +427,25 @@ pre {
   </div>
   <div class="slide hidden" id="slide-7">
     <section class="slide-content"><h3 id="database-sql-package">database/sql Package</h3>
-<pre><code>// get results as *sql.Rows
-rows := db.Query(&quot;select code, name from Company where name like &#39;%カルテット%&#39;&quot;)
-for rows.Next() {
-  var name string
-  var code string
-  err := rows.Scan(&amp;code, &amp;name)
-  if err != nil {
-    log.Fatal(err)
-  }
-  fmt.Println(code, name)
+<pre><code class="lang-go"><span class="hljs-comment">// get results as *sql.Rows</span>
+rows := db.Query(<span class="hljs-string">"SELECT code, name FROM company"</span>)
+<span class="hljs-keyword">for</span> rows.Next() {
+    <span class="hljs-keyword">var</span> name <span class="hljs-keyword">string</span>
+    <span class="hljs-keyword">var</span> code <span class="hljs-keyword">string</span>
+    err := rows.Scan(&amp;code, &amp;name)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+    fmt.Println(code, name)
 }</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h1 id="-">サードパーティ製ライブラリ</h1>
+    <section class="slide-content"><h1 id="-">サードパーティ製</h1>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="-">サードパーティ製ライブラリ</h3>
+    <section class="slide-content"><h3 id="-">サードパーティ製</h3>
 <ul>
 <li>sqirrel (SQLビルダー)</li>
 <li>gorp (SQLビルダー+Structマッパー)</li>
@@ -457,11 +457,11 @@ for rows.Next() {
     <section class="slide-content"><h3 id="sqirrel">sqirrel</h3>
 <pre><code class="lang-go"><span class="hljs-keyword">import</span> sq <span class="hljs-string">"github.com/Masterminds/squirrel"</span>
 
-users := sq.Select(<span class="hljs-string">"*"</span>).From(<span class="hljs-string">"users"</span>).Join(<span class="hljs-string">"emails USING (email_id)"</span>)
+users := sq.Select(<span class="hljs-string">"*"</span>).From(<span class="hljs-string">"users"</span>)
 active := users.Where(sq.Eq{<span class="hljs-string">"deleted_at"</span>: <span class="hljs-literal">nil</span>})
 sql, args, err := active.ToSql()
 
-sql == <span class="hljs-string">"SELECT * FROM users JOIN emails USING (email_id) WHERE deleted_at IS NULL"</span></code></pre>
+sql == <span class="hljs-string">"SELECT * FROM users WHERE deleted_at IS NULL"</span></code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
@@ -555,6 +555,16 @@ db.Model(&amp;user).Related(&amp;emails)</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-18">
+    <section class="slide-content"><h3 id="leveldb-">leveldbアーキテクチャ</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/13129570/14013819/0375971a-f1f2-11e5-9885-0d6415585461.jpg" alt="leveldb"></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-19">
+    <section class="slide-content"><h3 id="-">ブルームフィルタ</h3>
+<p><img src="https://cloud.githubusercontent.com/assets/13129570/14014040/54be38ec-f1f3-11e5-8246-bf9953c7d792.png" alt="bloom-filter"></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-20">
     <section class="slide-content"><h3 id="-">まとめ</h3>
 <ul>
 <li>データベース周りは結構貧弱</li>
@@ -565,11 +575,11 @@ db.Model(&amp;user).Related(&amp;emails)</code></pre>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-19">
+  <div class="slide hidden" id="slide-21">
     <section class="slide-content"><h1 id="-">終わり</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-20">
+  <div class="slide hidden" id="slide-22">
     <section class="slide-content"><div class="author">
   <h1 class="name">qcmnagai</h1>
     <h3 class="url">
