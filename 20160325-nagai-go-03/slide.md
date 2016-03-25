@@ -214,4 +214,11 @@ importするだけで使える（他のミドルウェアに依存しない）
 
 --
 
+## 参考資料
+
+- [LevelDB入門 (基本編)](http://yosuke-furukawa.hatenablog.com/entry/2014/05/05/095207)
+- [ブルームフィルタ](https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF)
+
+--
+
 # 終わり

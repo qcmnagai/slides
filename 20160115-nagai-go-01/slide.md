@@ -1,4 +1,4 @@
-title: Nagai Go #01
+title: "Nagai Go #01"
 author:
   name: qcmnagai
   url: http://quartet-communications.com
